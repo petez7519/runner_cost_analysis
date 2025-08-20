@@ -1,17 +1,17 @@
 {
-  `path`: `/Users/Pete/Downloads/combine_csvs_interactive.sh`,
+  `path`: `$HOME/Downloads/combine_csvs_interactive.sh`,
   `content`: `#!/bin/bash
 
 # Script to combine multiple CircleCI usage CSV files interactively
 echo \"==================================================\"
-echo \"CircleCI Usage CSV Combiner - Interactive Mode\"
+echo \"Usage CSV Combiner - Interactive Mode\"
 echo \"==================================================\"
 echo \"\"
 
 # Define the output file
-read -p \"Enter the output file path (default: /Users/Pete/Downloads/combined-usage-data.csv): \" OUTPUT_FILE
+read -p \"Enter the output file path: \" OUTPUT_FILE
 if [ -z \"$OUTPUT_FILE\" ]; then
-    OUTPUT_FILE=\"/Users/Pete/Downloads/combined-usage-data.csv\"
+    OUTPUT_FILE=\"$HOME/Downloads/combined-usage-data.csv\"
 fi
 
 echo \"Output will be saved to: $OUTPUT_FILE\"
