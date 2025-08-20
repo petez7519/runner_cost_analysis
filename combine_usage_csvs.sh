@@ -5,10 +5,10 @@ echo "Combining CircleCI usage CSV files..."
 OUTPUT_FILE="/Users/Pete/Downloads/combined-usage-data-july-2025.csv"
 
 # Define input files
-FILE1="/Users/Pete/Downloads/usage-data-job-01be7c2d-0516-f103-001b-7a8345603546.csv"
-FILE2="/Users/Pete/Downloads/usage-data-job-01be7c2d-0516-f103-001b-7a834560354e.csv"
-FILE3="/Users/Pete/Downloads/usage-data-job-01be7c2d-0516-f126-001b-7a8345602aae.csv"
-FILE4="/Users/Pete/Downloads/usage-data-job-01be7c2d-0516-f103-001b-7a8345603552.csv"
+FILE1="7a8345603546.csv"
+FILE2="7a834560354e.csv"
+FILE3="-7a8345602aae.csv"
+FILE4="7a8345603552.csv"
 
 # Get the header from the first file
 echo "Extracting header..."
