@@ -2,7 +2,7 @@
 echo "Combining CircleCI usage CSV files..."
 
 # Define the output file
-OUTPUT_FILE="/Users/Pete/Downloads/combined-usage-data-july-2025.csv"
+OUTPUT_FILE=""
 
 # Define input files
 FILE1="7a8345603546.csv"
