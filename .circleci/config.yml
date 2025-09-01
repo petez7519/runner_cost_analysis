@@ -1,19 +1,39 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/reference/configuration-reference
 version: 2.1
 
 jobs:
-  show-python-version:
+  runner-cost-analysis:
     docker:
-      - image: cimg/python:3.11  # You can change to 3.10, 3.12, etc.
+      - image: cimg/python:3.11
     steps:
       - checkout
+
       - run:
-          name: "Show Python version"
-          command: "python --version"
+          name: Install dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y jq git
+
+      - run:
+          name: Run combine_usagecsvs_2.sh
+          command: |
+            chmod +x combine_usagecsvs_2.sh
+            ./combine_usagecsvs_2.sh
+
+      - run:
+          name: Run analyze_runner_costs.py
+          command: |
+            python analyze_runner_costs.py combined_runner_usage.csv > runner_cost_report.txt
+
+      - store_artifacts:
+          path: runner_cost_report.txt
+          destination: runner_cost_report.txt
+
+      - store_artifacts:
+          path: combined_runner_usage.csv
+          destination: combined_runner_usage.csv
 
 workflows:
-  python-version-workflow:
+  runner-cost-analysis-workflow:
     jobs:
-      - show-python-version
+      - runner-cost-analysis
 
