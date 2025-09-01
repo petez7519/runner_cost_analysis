@@ -1,5 +1,3 @@
-version: 2.1
-
 jobs:
   runner-cost-analysis:
     docker:
@@ -8,10 +6,15 @@ jobs:
       - checkout
 
       - run:
-          name: Install dependencies
+          name: Install system dependencies
           command: |
             sudo apt-get update
             sudo apt-get install -y jq git
+
+      - run:
+          name: Install Python dependencies
+          command: |
+            pip install --no-cache-dir -r requirements.txt
 
       - run:
           name: Run combine_usagecsvs_2.sh
@@ -31,9 +34,4 @@ jobs:
       - store_artifacts:
           path: combined_runner_usage.csv
           destination: combined_runner_usage.csv
-
-workflows:
-  runner-cost-analysis-workflow:
-    jobs:
-      - runner-cost-analysis
 
