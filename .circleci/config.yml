@@ -1,5 +1,7 @@
+version: 2.1
+
 jobs:
-  runner-cost-analysis:
+  build:
     docker:
       - image: cimg/python:3.11
     steps:
@@ -34,4 +36,9 @@ jobs:
       - store_artifacts:
           path: combined_runner_usage.csv
           destination: combined_runner_usage.csv
+
+workflows:
+  build-workflow:
+    jobs:
+      - build
 
